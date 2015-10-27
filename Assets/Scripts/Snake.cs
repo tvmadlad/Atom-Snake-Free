@@ -17,6 +17,7 @@ public class Snake : MonoBehaviour {
 	public GameObject SplitControlsGameObject;
 	public GameObject RightControlsGameObject;
 	public GameObject AlternatingControlsGameObject;
+	public GameObject CountdownObject;
 
 
 	public GameObject HeadColourBlue;
@@ -160,7 +161,7 @@ public class Snake : MonoBehaviour {
 			if (CountDownTime >= 3f)
 				CountDown.text = "1";
 			if (CountDownTime >= 4f) 
-				CountDown.text = "";
+				CountdownObject.SetActive (false);
 		}
 		
 		// Move the Snake every 300ms

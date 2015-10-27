@@ -35,8 +35,12 @@ public class MenuGlobal : MonoBehaviour {
 	public GameObject ThemeStorePage;
 	public GameObject CoinStorePage;
 	public GameObject LoadingScreen;
+	public GameObject ExitButton;
 
     public bool isLoading;
+	public bool IOS;
+	public bool Android;
+	public bool PC;
 
 
 	// Use this for initialization
@@ -54,6 +58,21 @@ public class MenuGlobal : MonoBehaviour {
 		PurpleTick.gameObject.SetActive (false);
 		//PlayerPrefs.SetInt ("AtomCoin", 0);
 		//PlayerPrefs.SetInt ("firstLaunch", 0);
+
+		#if UNITY_ANDROID
+		IOS = false;
+		Android = false;
+		PC = false;
+		#elif UNITY_IPHONE
+		IOS = true;
+		Android = false;
+		PC =false;
+		#endif
+		
+		if (IOS) {
+			ExitButton.SetActive (false);
+		}
+
 
 		bool firstLaunch = (PlayerPrefs.GetInt ("firstLaunch") == 0);
 		if (firstLaunch) {
